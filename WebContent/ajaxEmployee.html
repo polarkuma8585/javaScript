@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body id="bdy">
+	<script>
+		var xhtp = new XMLHttpRequest();
+		xhtp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var data = JSON.parse(this.responseText);
+				//console.log(data);
+				createTable(data);
+			}
+		}
+		xhtp.open("get", "EmpServ");
+		xhtp.send();
+		
+		function createTable(data) {
+            console.log(data);
+            var table = document.createElement("table");
+            table.setAttribute("border", "1");
+            console.log(data.result.length)
+            for (var i = 0; i < data.result.length; i++) {
+                var tr = document.createElement("tr");
+                //console.log(data[i]);
+                for (field in data.result[i]) {
+                	//console.log(data.data[i]["firstName"])
+                    var td = document.createElement("td");
+                    var val = document.createTextNode(data.result[i][field]);
+                    td.appendChild(val);
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            document.getElementById("bdy").append(table);
+        }
+	</script>
+</body>
+</html>
