@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>이름</td>
+            <td>:</td>
+            <td> <input id="name" type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td> :</td>
+            <td><input id="id" type="text" name="id"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td>:</td>
+            <td> <input id="password" type="password" name="password"></td>
+        </tr>
+    </table>
+    <br>
+    <button id="btn">확인</button>
+
+    <p id="show1"></p>
+    <p id="show2"></p>
+    <p id="show3"></p>
+
+    <script>
+
+
+
+        // var btn = document.getElementById("btn");
+        btn.addEventListener("click", getEveyrthing);
+        function getEveyrthing() {
+            var pi = new Array();
+            pi = [document.getElementById("name").value, document.getElementById("id").value, document.getElementById("password").value];
+            // pi[0] = document.getElementById("name").value;
+            // pi[1] = document.getElementById("id").value;
+            // pi[2] = document.getElementById("password").value;
+
+            console.log(pi[0], document.getElementById("name").value);
+            // document.getElementById("show2").innerHTML = "아이디 : " + document.getElementById("id").value;
+            // document.getElementById("show3").innerHTML = "비밀번호 : " + document.getElementById("password").value;
+            document.getElementById("show1").innerHTML = "이름 : " + pi[0];
+            document.getElementById("show2").innerHTML = "아이디 : " + pi[1];
+            document.getElementById("show3").innerHTML = "비밀번호 : " + pi[2];
+        }
+
+
+    </script>
+</body>
+
+</html>

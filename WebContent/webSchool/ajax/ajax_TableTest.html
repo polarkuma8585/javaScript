@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body id="bdy">
+    <div id="div1">
+        <h1>Album List</h1>
+    </div>
+    <button id="btn">Talbe Set</button>
+
+    <script>
+        var $btn = document.getElementById("btn");
+        $btn.addEventListener("click", createTable);
+
+        function createTable() {
+            var $table = document.createElement("table");
+            $table.setAttribute("id", "tbl");
+            $table.setAttribute("border", "1");;
+            var th1 = document.createElement("th");
+            var val1 = document.createTextNode("Title");
+            th1.appendChild(val1);
+
+            var th2 = document.createElement("th")
+            var val2 = document.createTextNode("Artist");
+            th2.appendChild(val2);
+
+            var th3 = document.createElement("th")
+            var val3 = document.createTextNode("Country");
+            th3.appendChild(val3);
+
+            var th4 = document.createElement("th")
+            var val4 = document.createTextNode("Company");
+            th4.appendChild(val4);
+
+            var th5 = document.createElement("th")
+            var val5 = document.createTextNode("Price");
+            th5.appendChild(val5);
+
+            var th6 = document.createElement("th")
+            var val6 = document.createTextNode("Year");
+            th6.appendChild(val6);
+
+            var tr = document.createElement("tr");
+            tr.append(th1, th2, th3, th4, th5, th6);
+            $table.append(tr);
+            document.getElementById("bdy").append($table);
+
+            
+            
+        }
+
+
+
+    </script>
+</body>
+</html>

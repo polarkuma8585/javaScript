@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>XmlHttpRequest</h2>
+    <button onclick="loadAjax()">Click</button>
+    <p id="show"></p>
+
+    <script>
+        function loadAjax() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                console.log(this.readyState, this.status); // this 는 xhtp 를 가리킴.
+                if(this.readyState == 4 && this.status == 200) {
+                    document.getElementById("show").innerHTML = this.responseText; // 찾아온 ajax_info.txt 의 결과값을 보여줌.
+                    var result = this.responseText;
+                    console.log(result.get)
+                }
+            }
+            xhtp.open("get", "ajax_info.txt");
+            xhtp.send();
+        }
+    </script>
+</body>
+
+</html>

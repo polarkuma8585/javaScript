@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = { name: "John", age: 30, city: "Seoul" };
+        var json = JSON.stringify(obj); // javaScript 의 객체를 json 타입으로 바꿔줌. (JSON.stringify)
+        console.log(json);
+        var obj2 = JSON.parse(json);  // json의 객체를 타입을 javaScript 타입으로 바꿔줌. (JSON.parse)
+        console.log(obj2.name, obj2.age, obj2.city);
+    </script>
+</body>
+    
+</html>

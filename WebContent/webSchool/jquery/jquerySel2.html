@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $("button").click(function () {
+            //     $("h2").hide();
+            // })
+            // $("#btn2").click(function () {
+            //     $("p").hide();
+            // })
+            // $("p:first").click(function () { // p 태그의 첫번째 항목
+                
+            // var elem = $("p").eq(0);
+            // elem.click(function(){
+
+                $("p.int").click(function () {
+                console.log(this);
+                // $(this).hide();
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <h2>a Heading</h2>
+    <p class="int">a Paragraph</p>
+    <p>a Another</p>
+    <h2 class="int">Another Heading</h2>
+    <button id="btn1">Click1</button>
+    <button id="btn2">Click2</button>
+</body>
+
+</html>

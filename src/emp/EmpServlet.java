@@ -26,18 +26,18 @@ public class EmpServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		EmpDAO dao = new EmpDAO();
 		List<Employee> list = dao.getEmpList();
-//		out.println(JSONArray.fromObject(list));
-		JSONArray ary = new JSONArray();
-		for (Employee emp : list) { // 필요한 값만 가져와 배열에 담고 다시 그 값을 다른 객체에 담는다. 
-			JSONObject obj = new JSONObject();
-			obj.put("firstName", emp.getFirstName());
-			obj.put("lastName", emp.getLastName());
-			obj.put("salary", emp.getSalary());
-			ary.add(obj);
-		}
-		JSONObject outer = new JSONObject();
-		outer.put("data", ary);
-		out.println(outer);
+		out.println(JSONArray.fromObject(list));
+//		JSONArray ary = new JSONArray();
+//		for (Employee emp : list) { // 필요한 값만 가져와 배열에 담고 다시 그 값을 다른 객체에 담는다. 
+//			JSONObject obj = new JSONObject();
+//			obj.put("firstName", emp.getFirstName());
+//			obj.put("lastName", emp.getLastName());
+//			obj.put("salary", emp.getSalary());
+//			ary.add(obj);
+//		}
+//		JSONObject outer = new JSONObject();
+//		outer.put("data", ary);
+//		out.println(outer);
 
 	}
 

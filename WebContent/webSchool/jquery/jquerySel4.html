@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            // $("#Hide").click(function () {
+            //     $("[href]").hide();
+            // })
+            // $("#Show").click(function () {
+            //     $("[href]").show();
+            // })
+            $("button:first").click(function () {
+                // $("[target='_blank']").hide();
+                // $("a[target !='_blank']").hide(); //a 태그중 target 속성이 _blank 이 아닌 것.
+                //  $("a[href^=https]").hide(); // a 태그중 href 속성의 시작이 https 인 것.
+                 $("a[href$=com]").hide(); // a 태그중 href 속성의 끝이 com 인 것.
+            })
+
+        });
+    </script>
+</head>
+
+<body>
+    <button id="Hide">Hide</button>
+    <button id="Show">Show</button>
+    <p>a paragraph</p>
+    <p>another paragraph</p>
+    <p><a href="https://www.daum.net" target="_blank">Daum</a></p>
+    <p><a href="http://www.naver.com" target="_parent">Naver</a></p>
+</body>
+
+</html>

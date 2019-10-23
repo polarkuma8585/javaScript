@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                createTab();
+            });
+        });
+    </script>
+
+</head>
+
+<body id="bdy">
+    <button id="btn">CreateTable</button>
+    <script>
+        function createTab() {
+            $("#bdy table").remove(); // body 태그에 table 이 있으면 다음부터 제거.
+            
+            var tabbtn = $("<table>");
+            // tabbtn.attr("id", "tbl");
+            // tabbtn.attr("border", 1);
+            // tabbtn.attr("cellpadding", "5px");
+            tabbtn.attr({ "id": "tbl", "border": 1, "cellpadding": "5px" });
+            var tabcap = $("<caption>").text("<주소록>");
+            $(tabbtn).append(tabcap);
+
+            var tabth1 = $("<th>").text("이름");
+            var tabth2 = $("<th>").text("나이");
+            var tabth3 = $("<th>").text("전화번호");
+            var tabth4 = $("<th>").text("삭제");
+            var tabtr1 = $("<tr>");
+            $(tabtr1).attr("align", "center");
+            tabtr1.append(tabth1, tabth2, tabth3, tabth4);
+            var tabtd1 = $("<td>").text("홍길동");
+            var tabtd2 = $("<td>").text("35");
+            var tabtd3 = $("<td>").text("010-1111-1111");
+            var tabtd4 = $("<td>").html($("<button>").text("Del").click(delfunc));
+            var tabtr2 = $("<tr>");
+            $(tabtr2).attr("align", "center");
+            tabtr2.append(tabtd1, tabtd2, tabtd3, tabtd4);
+            var tabtd5 = $("<td>").text("김길동");
+            var tabtd6 = $("<td>").text("40");
+            var tabtd7 = $("<td>").text("010-2222-2222");
+            var tabtd8 = $("<td>").html($("<button>").text("Del").click(delfunc));
+            var tabtr3 = $("<tr>");
+            $(tabtr3).attr("align", "center");
+            tabtr3.append(tabtd5, tabtd6, tabtd7, tabtd8);
+            tabbtn.append(tabtr1, tabtr2, tabtr3);
+            $("#bdy").append(tabbtn);
+            console.log(tabbtn);
+        }
+        function delfunc() {
+            console.log(this);
+            $(this).parent().parent().remove();
+
+        }
+    </script>
+</body>
+
+</html>

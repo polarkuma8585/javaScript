@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        showResult(3, 5)
+        function showResult(p1, p2) {
+            document.getElementById('demo').innerHTML = myMulti(p1, p2);
+        }
+        function myMulti(p1, p2) {
+            return p1 * p2;
+        }
+        function tempChange(p1) {
+            return (5/9)*(p1-32);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="demo"></div>
+    
+    <button onclick="showResult(3, 5)">click</button><br><br>
+    <script>
+        var myVar = function (a, b) {
+            return a + b;
+        }
+        console.log(myVar(5, 10));
+        var localV = 35;
+        function localFunc(){
+            console.log("Function: localV => "+ localV)
+             localV = 50;
+            console.log("Function: localV => "+ localV)
+        }
+        localFunc()
+        console.log("localV : "+ localV);
+
+        var c = prompt("input fahrenheit: ")
+        document.getElementById('demo').innerHTML = '화씨온도' + c +'도는'+ '섭씨온도' + tempChange(c)+ '도입니다.';
+
+    </script>
+    
+</body>
+
+</html>

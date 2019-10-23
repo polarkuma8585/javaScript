@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#oldBtn").click(function () {
+                newBtn();
+            });
+            // $("#newBtn").click(function () {      // script는 document가 실행된 시점에서는 없기때문에 실행 불가.
+            //     alert("new btn clicked.");
+            // });
+            $("body").on("click", "#newBtn", function () {  // 이벤트가 일어날 태그보다 상위 요소의 on 메소드를 통해 실행가능.
+                alert("new btn clicked");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p id="show"></p>
+    <button id="oldBtn">OldButton</button><br>
+    <input type="text" name="firstName" value="Scott"><br>
+    <button id="exist">ExistBtn</button>
+    <div id="upper">
+        <p>PAragraph1</p>
+        <p>PAragraph2</p>
+    </div>
+    <script>
+        function newBtn() {
+            var newBtn = $("<button>").text("NewBtn"); //<button>...</button> 태그 생성 .text() -- button 태그 사이의 text내용
+            newBtn.attr("id", "newBtn");  // 생성하는 button 태그의 속성값 지정.
+
+            // elem.text(), html(), val(), attr("id"), prop("")
+            // elem.text("New World")
+
+            var div = $("<div>").html("<h3>Hello</h3>");
+            // var div = $("<div>").html($("<h3>").text("Hello"));
+            $("body").append(div);
+            $("body").prepend(newBtn);  // prepend() 앞에 붙임.
+            console.log($("input[name]").val());
+            $("input[name]").val("Charlie");
+            console.log(newBtn.attr("id"));
+            // remove (요소를 제거)
+            $("#exist").remove(); 
+            // empty() -- 하위요소를 제거
+            $("#upper").empty();
+        }
+
+    </script>
+</body>
+
+</html>

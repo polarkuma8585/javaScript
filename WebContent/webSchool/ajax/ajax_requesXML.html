@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body id="bdy">
+    <button onclick="loadXML()">Get XML</button>
+    <h3>Album List</h3>
+    <p id="showXML"></p>
+
+    <script>
+        function loadXML() {
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    getXML(this);
+                }
+            }
+            xhtp.open("get", "cd_catalog.xml");
+            xhtp.send();
+        }
+
+        function getXML(elem) {
+            console.log(elem.responseXML);
+            var xml = elem.responseXML;
+            var cds = xml.getElementsByTagName("CD");
+
+            // console.log(cds[0].childNodes[1].childNodes[0].nodeValue);
+            // var tag = "<ul>";
+            // for (var i = 0; i < cds.length; i++) {
+            //     tag += "<li>" + cds[i].childNodes[1].childNodes[0].nodeValue + "</li>";
+            // }
+            // tag += "</ul>";
+            // document.getElementById("showXML").innerHTML = tag;
+                
+            var fields = cds[0].childNodes.length;
+            var tag = "<table border=1>"
+            for (var i = 0; i < cds.length; i++) {
+                tag += " <tr>";
+                for (var j = 0; j < fields; j++) {
+                    if (j % 2 == 1) {
+                        tag += "<td>" + cds[i].childNodes[j].childNodes[0].nodeValue + "</td>";
+
+                    }
+
+                }
+                tag += "<td><button id=btn1>Del</button></td></tr>";
+            }
+            
+            tag += "</table>";
+           
+            document.getElementById("showXML").innerHTML = tag;
+            // var evt = document.getElementById("btn1");
+            // evt.addEventListener("click", delRow);
+        }
+
+        function delRow() {
+            // console.log(this);
+            // this.parentNode.remove();
+        }
+
+        // var td1 = document.createElement("td")
+        // var tdVal1 = document.createTextNode(cds[0].childNodes[1].childNodes[0].nodeValue);
+        // td1.appendChild(tdVal1);
+
+        // var td2 = document.createElement("td")
+        // var tdVal2 = document.createTextNode(cds[0].childNodes[3].childNodes[0].nodeValue);
+        // td2.appendChild(tdVal2);
+
+        // var td3 = document.createElement("td")
+        // var tdVal3 = document.createTextNode(cds[0].childNodes[5].childNodes[0].nodeValue);
+        // td3.appendChild(tdVal3);
+
+        // var td4 = document.createElement("td")
+        // var tdVal4 = document.createTextNode(cds[0].childNodes[7].childNodes[0].nodeValue);
+        // td4.appendChild(tdVal4);
+
+        // var td5 = document.createElement("td")
+        // var tdVal5 = document.createTextNode(cds[0].childNodes[9].childNodes[0].nodeValue);
+        // td5.appendChild(tdVal5);
+
+        // var td6 = document.createElement("td")
+        // var tdVal6 = document.createTextNode(cds[0].childNodes[11].childNodes[0].nodeValue);
+        // td6.appendChild(tdVal6);
+
+        // var tr1 = document.createElement("tr");
+        // tr1.append(td1, td2, td3, td4, td5, td6);
+        // $table.append(tr1);
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
