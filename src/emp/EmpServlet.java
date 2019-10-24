@@ -23,6 +23,10 @@ public class EmpServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// 한글 깨질때 사용하는 함수.
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+		
 		PrintWriter out = response.getWriter();
 		EmpDAO dao = new EmpDAO();
 		List<Employee> list = dao.getEmpList();

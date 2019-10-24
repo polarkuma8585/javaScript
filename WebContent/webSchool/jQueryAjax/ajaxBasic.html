@@ -23,11 +23,11 @@
                     console.log(datas);
                     var ul = $("<ul>");
                     for (var i = 0; i < datas.length; i++) {
-                        var li1 = $("<li>").text(datas[i].firstName);
-                        var li2 = $("<li>").text(datas[i].lastName);
-                        var li3 = $("<li>").text(datas[i].jobId);
-                        var li4 = $("<li>").text(datas[i].hireDate);
-                        var li5 = $("<li>").text(datas[i].salary);
+                        var li1 = $("<li>").text("이름: " + datas[i].firstName);
+                        var li2 = $("<li>").text("성 : " + datas[i].lastName);
+                        var li3 = $("<li>").text("부서: " +datas[i].jobId);
+                        var li4 = $("<li>").text("입사일: " + datas[i].hireDate);
+                        var li5 = $("<li>").text("급여: " + datas[i].salary);
                         ul.append(li1, li2, li3, li4, li5);
 
                     }
